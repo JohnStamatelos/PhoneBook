@@ -14,8 +14,11 @@ export class AppComponent {
 
     this.router.events.subscribe(value => {
       if (value instanceof NavigationStart) {
-        if (value.url === "/home") {
+        if (value.url === "/home" || value.url !=="/add") {
           this.displayAddButton = true;
+        }
+        else{
+          this.displayAddButton = false;
         }
       }
     });
