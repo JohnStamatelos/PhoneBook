@@ -8,6 +8,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 
+
+import { MaterialModule } from './shared/material.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,8 @@ import { AddItemComponent } from './components/add-item/add-item.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
