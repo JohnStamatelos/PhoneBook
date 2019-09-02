@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PhoneBook';
+  displayAddButton: boolean;
+
+  constructor(private router: Router) {
+
+    this.router.events.subscribe(value => {
+      if (value instanceof NavigationStart) {
+        if (value.url === "/home") {
+          this.displayAddButton = true;
+        }
+      }
+    });
+  }
+
 }

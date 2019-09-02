@@ -1,8 +1,7 @@
 <mat-toolbar color="primary">
     <span>Phone Book</span>
     <span class="spacer"></span>
-    <!-- todo hide if in add-item page -->
-    <button id="addButton" mat-raised-button [routerLink]="['/create']">
+    <button *ngIf="displayAddButton" id="addButton" mat-raised-button [routerLink]="['/create']">
         <mat-icon class="padding-right-10">person_add</mat-icon>
         Add Contact
     </button>
