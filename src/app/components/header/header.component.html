@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <span>Phone Book</span>
+    <span class="spacer"></span>
+    <button *ngIf="displayAddButton" id="addButton" mat-raised-button [routerLink]="['/add']">
+        <mat-icon class="padding-right-10">person_add</mat-icon>
+        Add Contact
+    </button>
+</mat-toolbar>

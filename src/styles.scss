@@ -2,3 +2,20 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+//App wide scss
+    .center-text{
+        text-align: center;
+    }
+
+    .end-text{
+        text-align: end;
+    }
+
+    .mat-dialog-container{
+        background: linear-gradient(-45deg, #ec1717, transparent);
+    }
+
+    .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content{
+        justify-content: center;
+    }
