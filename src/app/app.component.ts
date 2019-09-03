@@ -6,25 +6,25 @@ import { Router, NavigationStart } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'PhoneBook';
   displayAddButton: boolean;
 
   constructor(private router: Router) {
-
     this.router.events.subscribe(value => {
       if (value instanceof NavigationStart) {
-        if (value.url === "/home" || value.url !=="/add") {
+        let editUrl = value.url.substring(1, 5)
+        if (value.url === "/home" || value.url !== "/add" && editUrl !== 'edit') {
           this.displayAddButton = true;
         }
-        else{
+        else {
           this.displayAddButton = false;
         }
       }
     });
   }
 
-  ngOnInit(){
+  ngOnInit() {
     // localStorage.removeItem('phoneBookData');
   }
 
