@@ -14,6 +14,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MaterialModule } from './shared/material.module';
 import { PhoneBookService } from './services/phone-book-service.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PhoneBookService } from './services/phone-book-service.service';
     MaterialModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    ReactiveFormsModule
   ],
   providers: [PhoneBookService],
   bootstrap: [AppComponent]

@@ -29,7 +29,7 @@
     <div class='end-text'>
         <mat-card-actions>
             <button mat-raised-button color='warn' [routerLink]="['/home']">CANCEL</button>
-            <button mat-raised-button color='primary'>ADD</button>
+            <button mat-raised-button color='primary' [disabled]='false' (click)="saveItem()">ADD</button>
         </mat-card-actions>
     </div>
 
