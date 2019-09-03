@@ -16,6 +16,7 @@ import { MaterialModule } from './shared/material.module';
 import { PhoneBookService } from './services/phone-book-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
+import { EditItemComponent } from './components/edit-item/edit-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DeleteModalComponent } from './components/delete-modal/delete-modal.com
     HomePageComponent,
     HeaderComponent,
     AddItemComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
+    EditItemComponent
   ],
   entryComponents: [
     DeleteModalComponent

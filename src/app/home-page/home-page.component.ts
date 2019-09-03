@@ -6,10 +6,6 @@ import { PhoneBookService } from '../services/phone-book-service.service';
 import { IPhoneBookItem } from '../models/iphone-book-item';
 import { DeleteModalComponent } from '../components/delete-modal/delete-modal.component';
 
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
-
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',

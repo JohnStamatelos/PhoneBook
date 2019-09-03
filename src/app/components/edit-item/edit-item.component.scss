@@ -1,0 +1,24 @@
+.margin-responsive{
+    margin: 2em 6em 
+}
+
+@media only screen and (max-width : 768px){
+    .margin-responsive{
+        margin: 1em;
+    }
+}
+
+.block{
+    display: block;
+}
+
+.top-right{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.required{
+    color: red;
+}
+
