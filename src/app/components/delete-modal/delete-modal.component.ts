@@ -26,10 +26,11 @@ export class DeleteModalComponent {
   }
 
   private spliceItemFromPhoneBookData(): void {
-    this.phoneBookItemArray.splice(this.itemToBeDeleted.id - 1, 1)
+    let indexOfItemToDelete = this.phoneBookItemArray.findIndex(i => i.id === this.itemToBeDeleted.id);
+    this.phoneBookItemArray.splice(indexOfItemToDelete, 1);
   }
 
-  private updatePhoneBookDataOnLocalStorage() :void{
+  private updatePhoneBookDataOnLocalStorage(): void {
     localStorage.setItem('phoneBookData', JSON.stringify(this.phoneBookItemArray));
   }
 }

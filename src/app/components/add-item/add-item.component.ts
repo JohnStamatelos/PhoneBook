@@ -31,7 +31,8 @@ export class AddItemComponent implements OnInit {
   saveItem(): void {
     this.item = this.form.value;
     let tempData = JSON.parse(localStorage.getItem('phoneBookData'));
-    this.item.id = tempData.length + 1;
+    // Current ID only set for demo purpose, GUID would be ideal as the id is used to delete the user in delete-modal.component.ts
+    this.item.id = tempData.length + 100;
     tempData.push(this.item)
     localStorage.setItem('phoneBookData', JSON.stringify(tempData));
     this.openSnackBar(`New contact : ${this.form.value.name} saved!`, '')

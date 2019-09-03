@@ -29,9 +29,12 @@ export class HomePageComponent implements OnInit {
   ) { }
 
   openDialog(selectedItem: IPhoneBookItem): void {
-    this.dialog.open(DeleteModalComponent, {
+    const ref = this.dialog.open(DeleteModalComponent, {
       data: { selectedItem }
     });
+    ref.afterClosed().subscribe(closed => {
+      this.populatePhoneBookData();
+    })
   }
 
   ngOnInit() {
