@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, RequiredValidator } from '@angular/forms';
+import {  } from '@angular/forms';
 
 import { IPhoneBookItem } from 'src/app/models/iphone-book-item';
 
@@ -12,13 +13,13 @@ export class AddItemComponent implements OnInit {
   form : FormGroup;
   item : IPhoneBookItem;
 
-  constructor() { }
+  constructor(private fb : FormBuilder) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      itemName : new FormControl(),
-      itemSurname: new FormControl(),
-      itemPhone : new FormControl()
+    this.form = this.fb.group({
+      itemName: [''],
+      itemSurname: '',
+      itemPhone : ''
     })
   }
 
