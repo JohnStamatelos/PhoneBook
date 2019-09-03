@@ -4,6 +4,11 @@ import { MatPaginator } from '@angular/material/paginator';
 
 import { PhoneBookService } from '../services/phone-book-service.service';
 import { IPhoneBookItem } from '../models/iphone-book-item';
+import { DeleteModalComponent } from '../components/delete-modal/delete-modal.component';
+
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 
 @Component({
   selector: 'app-home-page',
@@ -20,7 +25,14 @@ export class HomePageComponent implements OnInit {
 
   constructor(
     private service: PhoneBookService,
+    public dialog: MatDialog
   ) { }
+
+  openDialog(selectedItem: IPhoneBookItem): void {
+    this.dialog.open(DeleteModalComponent, {
+      data: { selectedItem }
+    });
+  }
 
   ngOnInit() {
     this.populatePhoneBookData();

@@ -1,0 +1,19 @@
+<mat-card class='margin-responsive mat-elevation-z8'>
+    <mat-card-title class='center-text'>DELETE CONTACT?</mat-card-title>
+   
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item> {{itemToBeDeleted.name}} </mat-list-item>
+            <mat-list-item> {{itemToBeDeleted.surname}} </mat-list-item>
+            <mat-list-item> {{itemToBeDeleted.phoneNumber}} </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+
+    <div class='end-text'>
+        <mat-card-actions>
+            <button mat-raised-button color='primary' [mat-dialog-close]="true">CANCEL</button>
+            <button mat-raised-button color='warn' (click)='deleteThisItem()' [mat-dialog-close]="true">DELETE</button>
+        </mat-card-actions>
+    </div>
+
+</mat-card>

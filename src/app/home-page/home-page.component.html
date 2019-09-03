@@ -28,7 +28,7 @@
             <ng-container matColumnDef="delete">
                 <mat-header-cell *matHeaderCellDef class="hide-sm"></mat-header-cell>
                 <mat-cell *matCellDef="let item" class="hide-sm">
-                    <button mat-icon-button (click)="addaction(item)" color="warn">
+                    <button mat-icon-button (click)="openDialog(item)" color="warn">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </mat-cell>

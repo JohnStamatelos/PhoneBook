@@ -15,13 +15,18 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MaterialModule } from './shared/material.module';
 import { PhoneBookService } from './services/phone-book-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     HeaderComponent,
-    AddItemComponent
+    AddItemComponent,
+    DeleteModalComponent
+  ],
+  entryComponents: [
+    DeleteModalComponent
   ],
   imports: [
     HttpClientModule,
