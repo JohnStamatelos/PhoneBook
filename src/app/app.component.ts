@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router, NavigationStart } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'PhoneBook';
   displayAddButton: boolean;
 
@@ -22,6 +22,10 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  ngOnInit(){
+    // localStorage.removeItem('phoneBookData');
   }
 
 }

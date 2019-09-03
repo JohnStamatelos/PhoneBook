@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, RequiredValidator, Validators } from '@angular/forms';
-import { } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { IPhoneBookItem } from 'src/app/models/iphone-book-item';
 
@@ -13,17 +14,36 @@ export class AddItemComponent implements OnInit {
   form: FormGroup;
   item: IPhoneBookItem;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private _snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      itemName: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(2)]],
-      itemPhone: ['', [Validators.required, Validators.pattern(/^0((60[3-9]|64[0-5]|66[0-5])\d{6}|(7[1-4689]|6[1-3]|8[1-4])\d{7})$/)]],
-      itemSurname: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(2)]],
+      name: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(2)]],
+      surname: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(2)]],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^0((60[3-9]|64[0-5]|66[0-5])\d{6}|(7[1-4689]|6[1-3]|8[1-4])\d{7})$/)]],
     })
   }
 
   saveItem(): void {
-    console.log(this.form)
+    this.item = this.form.value;
+    let tempData = JSON.parse(localStorage.getItem('phoneBookData'));
+    this.item.id = tempData.length + 1;
+    tempData.push(this.item)
+    localStorage.setItem('phoneBookData', JSON.stringify(tempData));
+    this.openSnackBar(`New contact : ${this.form.value.name} saved!`, '')
   }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+    setTimeout(() => {
+      this.router.navigate(['/home']);
+    }, 1500);
+  }
+
 }

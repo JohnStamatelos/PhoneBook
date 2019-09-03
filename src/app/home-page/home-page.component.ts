@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatDialog} from '@angular/material';
+import { MatTableDataSource, MatDialog } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 
 import { PhoneBookService } from '../services/phone-book-service.service';
@@ -10,28 +10,43 @@ import { IPhoneBookItem } from '../models/iphone-book-item';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit{
+export class HomePageComponent implements OnInit {
 
   private displayedColumns = ['name', 'surname', 'phoneNumber', 'delete', 'edit'];
   private dataSource = new MatTableDataSource;
-  items : IPhoneBookItem[];
+  items: IPhoneBookItem[];
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
   constructor(
     private service: PhoneBookService,
   ) { }
 
   ngOnInit() {
-    this.getPhoneBookData();
+    this.populatePhoneBookData();
   }
 
-  getPhoneBookData(): void {
+  populatePhoneBookData(): void {
+    if (!localStorage.getItem('phoneBookData')) {
+      this.getDataFromService();
+    } else {
+      this.getDataFromLocalStorage();
+    }
+  }
+
+  getDataFromService(): void {
     this.service.getPhoneBookData().subscribe(data => {
       this.items = data;
       this.dataSource.paginator = this.paginator;
       this.dataSource.data = data;
+      localStorage.setItem('phoneBookData', JSON.stringify(data))
     })
+  }
+
+  getDataFromLocalStorage(): void {
+    this.items = JSON.parse(localStorage.getItem('phoneBookData'));
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.data = this.items;
   }
 
   applyFilter(searchValue: string) {
