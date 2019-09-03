@@ -4,25 +4,25 @@
     </button>
     <mat-card-title class='center-text'>ADD CONTACT</mat-card-title>
 
-    <form (ngSubmit)="saveItem()" [formGroup]="form" novalidate>
+    <form (ngSubmit)="saveItem()" [formGroup]="form">
         <div>
             <mat-form-field class='block' appearance="standard">
                 <mat-label><span class='required'>*</span>Name</mat-label>
-                <input matInput #name maxlength="20" formControlName='itemName'>
+                <input matInput #name maxlength="20" id='nameId' type='text' formControlName='itemName'>
                 <mat-hint align='end'>{{name.value?.length || 0}}/20</mat-hint>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class='block' appearance="standard">
                 <mat-label><span class='required'>*</span>Surname</mat-label>
-                <input matInput #surname maxlength="20" formVontrolName='itemSurname'>
+                <input matInput #surname maxlength="20" id='surnameId' type='text' formVontrolName='itemSurname'>
                 <mat-hint align='end'>{{surname.value?.length || 0}}/20</mat-hint>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class='block' appearance="standard">
                 <mat-label><span class='required'>*</span>Phone Number</mat-label>
-                <input matInput #phone maxlength="10" formControlName='itemPhone'>
+                <input matInput #phone maxlength="10" id='phoneId' type='text' formControlName='itemPhone'>
                 <mat-hint align='end'>{{phone.value?.length || 0}}/10</mat-hint>
             </mat-form-field>
         </div>
