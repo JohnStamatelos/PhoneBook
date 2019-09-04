@@ -7,7 +7,6 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'PhoneBook';
   displayAddButton: boolean = true;
 
   constructor(private router: Router) {
