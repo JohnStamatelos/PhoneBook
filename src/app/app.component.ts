@@ -8,7 +8,7 @@ import { Router, NavigationStart } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'PhoneBook';
-  displayAddButton: boolean;
+  displayAddButton: boolean = true;
 
   constructor(private router: Router) {
     this.router.events.subscribe(value => {
