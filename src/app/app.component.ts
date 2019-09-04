@@ -7,16 +7,15 @@ import { Router, NavigationStart } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  displayAddButton: boolean = true;
+  displayAddButton = true;
 
   constructor(private router: Router) {
     this.router.events.subscribe(value => {
       if (value instanceof NavigationStart) {
-        let editUrl = value.url.substring(1, 5)
+        const editUrl = value.url.substring(1, 5)
         if (value.url === "/home" || value.url !== "/add" && editUrl !== 'edit') {
           this.displayAddButton = true;
-        }
-        else {
+        } else {
           this.displayAddButton = false;
         }
       }

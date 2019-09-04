@@ -26,7 +26,7 @@ export class PhoneBookService {
     );
   }
 
-  //TODO - change error handling as required!
+  // TODO - change error handling as required!
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       return of(result as T);

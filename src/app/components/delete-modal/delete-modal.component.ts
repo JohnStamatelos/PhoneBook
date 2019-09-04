@@ -22,7 +22,7 @@ export class DeleteModalComponent {
   }
 
   private getPhoneBookDataFromLocalStorage(): void {
-    this.phoneBookItemArray = JSON.parse(localStorage.getItem('phoneBookData'))
+    this.phoneBookItemArray = JSON.parse(localStorage.getItem('phoneBookData'));
   }
 
   private spliceItemFromPhoneBookData(): void {

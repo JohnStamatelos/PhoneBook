@@ -20,7 +20,7 @@ export class EditItemComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) {
     this.route.params.subscribe(params =>
       this.itemToEditID = +params.id);
@@ -45,7 +45,7 @@ export class EditItemComponent implements OnInit {
       name: [this.itemToEdit.name, [Validators.required, Validators.maxLength(20), Validators.minLength(2)]],
       surname: [this.itemToEdit.surname, [Validators.required, Validators.maxLength(20), Validators.minLength(2)]],
       phoneNumber: [this.itemToEdit.phoneNumber, [Validators.required, Validators.pattern(/^0((60[3-9]|64[0-5]|66[0-5])\d{6}|(7[1-4689]|6[1-3]|8[1-4])\d{7})$/)]],
-    })
+    });
   }
 
   editItem(): void {
@@ -53,11 +53,11 @@ export class EditItemComponent implements OnInit {
     this.itemToEdit.id = this.itemToEditID;
     this.updatePhoneBook();
     localStorage.setItem('phoneBookData', JSON.stringify(this.phoneBookData));
-    this.openSnackBar(`${this.form.value.name} has been edited!`, '')
+    this.openSnackBar(`${this.form.value.name} has been edited!`, '');
   }
 
   updatePhoneBook(): void {
-    for (var i in this.phoneBookData) {
+    for (const i in this.phoneBookData) {
       if (this.phoneBookData[i].id === this.itemToEdit.id) {
         this.phoneBookData[i] = this.itemToEdit;
         break;
@@ -66,7 +66,7 @@ export class EditItemComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
+    this.snackBar.open(message, action, {
       duration: 2000,
     });
     setTimeout(() => {

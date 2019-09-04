@@ -14,7 +14,7 @@ import { DeleteModalComponent } from '../components/delete-modal/delete-modal.co
 export class HomePageComponent implements OnInit {
 
   displayedColumns = ['name', 'surname', 'phoneNumber', 'delete', 'edit'];
-  dataSource = new MatTableDataSource;
+  dataSource = new MatTableDataSource();
   items: IPhoneBookItem[];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
     });
     ref.afterClosed().subscribe(closed => {
       this.populatePhoneBookData();
-    })
+    });
   }
 
   ngOnInit() {
@@ -50,8 +50,8 @@ export class HomePageComponent implements OnInit {
       this.items = data;
       this.dataSource.paginator = this.paginator;
       this.dataSource.data = data;
-      localStorage.setItem('phoneBookData', JSON.stringify(data))
-    })
+      localStorage.setItem('phoneBookData', JSON.stringify(data));
+    });
   }
 
   getDataFromLocalStorage(): void {
