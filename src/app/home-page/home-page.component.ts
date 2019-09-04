@@ -13,8 +13,8 @@ import { DeleteModalComponent } from '../components/delete-modal/delete-modal.co
 })
 export class HomePageComponent implements OnInit {
 
-  private displayedColumns = ['name', 'surname', 'phoneNumber', 'delete', 'edit'];
-  private dataSource = new MatTableDataSource;
+  displayedColumns = ['name', 'surname', 'phoneNumber', 'delete', 'edit'];
+  dataSource = new MatTableDataSource;
   items: IPhoneBookItem[];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
